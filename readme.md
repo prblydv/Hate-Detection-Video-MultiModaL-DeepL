@@ -171,13 +171,15 @@ jupyter notebook lab.ipynb
 
 ### **Step 6: Evaluate the Model**
 ```bash
-jupyter notebook lab.ipynb second last cell
+jupyter notebook lab.ipynb
+#second last cell
 
 ```
 
 ### **Step 7: Run Predictions on New Videos**
 ```bash
-jupyter notebook lab.ipynb last cell
+jupyter notebook lab.ipynb
+#last cell
 
 ```
 
