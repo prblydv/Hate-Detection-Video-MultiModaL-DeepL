@@ -1,0 +1,95 @@
+STAGE:2025-01-22 15:37:32 7176:9800 ..\third_party\kineto\libkineto\src\ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2025-01-22 15:37:32 7176:9800 ..\third_party\kineto\libkineto\src\ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+--------------------------------------------------------------------------------
+  Environment Summary
+--------------------------------------------------------------------------------
+PyTorch 2.2.0.dev20231114+cu121 DEBUG compiled w/ CUDA 12.1
+Running with Python 3.11 and CUDA 12.3.103
+
+`pip3 list` truncated output:
+numpy==1.26.4
+torch==2.2.0.dev20231114+cu121
+torchaudio==2.2.0.dev20231115+cu121
+torchvision==0.17.0.dev20231115+cu121
+--------------------------------------------------------------------------------
+  cProfile output
+--------------------------------------------------------------------------------
+         25387640 function calls (20478422 primitive calls) in 180.338 seconds
+
+   Ordered by: internal time
+   List reduced from 16937 to 15 due to restriction <15>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       24   96.330    4.014   96.330    4.014 {built-in method torch._C._cuda_emptyCache}
+      461   47.353    0.103   47.353    0.103 {method 'to' of 'torch._C.TensorBase' objects}
+      196   10.766    0.055   10.766    0.055 {method 'acquire' of '_thread.lock' objects}
+       23    3.376    0.147    3.376    0.147 {method 'run_backward' of 'torch._C._EngineBase' objects}
+       26    3.325    0.128    3.344    0.129 C:\Users\PRABAL YADAV\Desktop\machine learning iim\venv\Lib\site-packages\transformers\modeling_attn_mask_utils.py:425(_prepare_4d_attention_mask_for_sdpa)
+    25710    2.572    0.000    6.018    0.000 C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\inspect.py:969(getmodule)
+       40    1.424    0.036    1.424    0.036 {built-in method _winapi.WaitForSingleObject}
+    28205    1.273    0.000    1.273    0.000 {built-in method nt.stat}
+4834240/112804    0.997    0.000   10.719    0.000 {built-in method builtins.hasattr}
+  4707392    0.875    0.000    1.144    0.000 C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\inspect.py:283(ismodule)
+       26    0.826    0.032    0.826    0.032 {built-in method torch.tanh}
+     4476    0.691    0.000    0.691    0.000 {built-in method marshal.loads}
+     8224    0.552    0.000    0.552    0.000 {built-in method nt._getfinalpathname}
+     2080    0.460    0.000    0.460    0.000 {built-in method torch._C._nn.linear}
+  4719756    0.415    0.000    0.415    0.000 {method 'get' of 'dict' objects}
+
+
+--------------------------------------------------------------------------------
+  autograd profiler output (CPU mode)
+--------------------------------------------------------------------------------
+        top 15 events sorted by cpu_time_total
+
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+enumerate(DataLoader)#_MultiProcessingDataLoaderIter...        29.02%        6.491s        29.02%        6.491s        6.491s             1
+enumerate(DataLoader)#_MultiProcessingDataLoaderIter...        20.15%        4.507s        20.15%        4.507s        4.507s             1
+                                               aten::to         0.00%       4.000us        13.16%        2.944s        2.944s             1
+                                         aten::_to_copy         0.00%      13.000us        13.16%        2.944s        2.944s             1
+                                            aten::copy_        13.16%        2.944s        13.16%        2.944s        2.944s             1
+                                               aten::to         0.00%       3.000us        12.69%        2.839s        2.839s             1
+                                         aten::_to_copy         0.00%      11.000us        12.69%        2.839s        2.839s             1
+                                            aten::copy_        12.69%        2.839s        12.69%        2.839s        2.839s             1
+                                               aten::to         0.00%       3.000us        12.53%        2.802s        2.802s             1
+                                         aten::_to_copy         0.00%      13.000us        12.53%        2.802s        2.802s             1
+                                            aten::copy_        12.53%        2.802s        12.53%        2.802s        2.802s             1
+                                               aten::to         0.00%       3.000us        12.44%        2.781s        2.781s             1
+                                         aten::_to_copy         0.00%      13.000us        12.44%        2.781s        2.781s             1
+                                            aten::copy_        12.44%        2.781s        12.44%        2.781s        2.781s             1
+                                               aten::to         0.00%       5.000us        12.35%        2.761s        2.761s             1
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+Self CPU time total: 22.365s
+
+--------------------------------------------------------------------------------
+  autograd profiler output (CUDA mode)
+--------------------------------------------------------------------------------
+        top 15 events sorted by cpu_time_total
+
+        Because the autograd profiler uses the CUDA event API,
+        the CUDA time column reports approximately max(cuda_time, cpu_time).
+        Please ignore this output if your code does not use CUDA.
+
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------
+enumerate(DataLoader)#_MultiProcessingDataLoaderIter...        43.57%        6.568s        43.57%        6.568s        6.568s        6.568s        55.47%        6.568s        6.568s             1
+enumerate(DataLoader)#_MultiProcessingDataLoaderIter...        34.87%        5.257s        34.87%        5.257s        5.257s        5.258s        44.40%        5.258s        5.258s             1
+                                               aten::to         0.00%      20.000us         6.70%        1.011s        1.011s       7.000us         0.00%     459.000us     459.000us             1
+                                         aten::_to_copy         0.00%      89.000us         6.70%        1.011s        1.011s      73.000us         0.00%     452.000us     452.000us             1
+                                            aten::copy_         6.70%        1.011s         6.70%        1.011s        1.011s     376.000us         0.00%     376.000us     376.000us             1
+                               Optimizer.step#Adam.step         1.29%     194.687ms         6.44%     970.194ms     970.194ms       4.416ms         0.04%     946.779ms     946.779ms             1
+                                               aten::to         0.00%      17.000us         6.15%     926.453ms     926.453ms      29.000us         0.00%     450.000us     450.000us             1
+                                         aten::_to_copy         0.00%      81.000us         6.15%     926.436ms     926.436ms      45.000us         0.00%     421.000us     421.000us             1
+                                            aten::copy_         6.14%     926.348ms         6.14%     926.348ms     926.348ms     373.000us         0.00%     373.000us     373.000us             1
+                               Optimizer.step#Adam.step         1.34%     201.465ms         6.14%     925.538ms     925.538ms       9.671ms         0.08%     840.504ms     840.504ms             1
+                                               aten::to         0.00%      18.000us         6.09%     917.747ms     917.747ms      10.000us         0.00%     471.000us     471.000us             1
+                                         aten::_to_copy         0.00%      81.000us         6.09%     917.729ms     917.729ms      63.000us         0.00%     461.000us     461.000us             1
+                                            aten::copy_         6.09%     917.643ms         6.09%     917.643ms     917.643ms     397.000us         0.00%     397.000us     397.000us             1
+                                               aten::to         0.00%      18.000us         6.02%     907.810ms     907.810ms      34.000us         0.00%     453.000us     453.000us             1
+                                         aten::_to_copy         0.00%      66.000us         6.02%     907.792ms     907.792ms      45.000us         0.00%     419.000us     419.000us             1
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------
+Self CPU time total: 15.076s
+Self CUDA time total: 11.841s
