@@ -167,17 +167,6 @@ python pre_processing/pre_process.py
 ```bash
 jupyter notebook lab.ipynb
 # Open and run all cells in Jupyter Notebook
-```
-
-### **Step 6: Evaluate the Model**
-```bash
-python evaluate.py
-```
-
-### **Step 7: Run Predictions on New Videos**
-```bash
-python predict.py --input example.mp4
-```
 
 ---
 
