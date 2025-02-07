@@ -1,4 +1,4 @@
-# **Multi-Modal Hate Speech Detection: Enhanced HateMM Model**
+# **Multi-Modal Video Hate Speech Detection: Enhanced HateMM Model**
 
 This project presents an **enhanced multi-modal hate speech detection model**, achieving **higher accuracy** than the original model proposed in the **HateMM paper**:  
 📄 [HateMM: Multi-Modal Hate Speech Detection](https://arxiv.org/abs/2305.03915)
