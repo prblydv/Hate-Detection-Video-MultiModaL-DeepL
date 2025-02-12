@@ -45,7 +45,6 @@ class CustomResNetVideo(nn.Module):
         # x has shape [batch_size, num_frames, channels, height, width]
         x = x.permute(0, 2, 1, 3, 4)  # Change shape to [batch_size, channels, num_frames, height, width]
 
-        # Pass through the first 3D convolutional layer
         x = self.conv3d(x)
         x = self.relu(x)
         x = self.pool3d(x)  # Adjusted feature size for 64x64 input
